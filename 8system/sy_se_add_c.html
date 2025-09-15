@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>印章使用登记</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<style>
+			/* 为带有require类的元素添加红色星号前缀 */
+			.required::before {
+				/* 星号内容 */
+				content: "*";
+					/* 红色 */
+				color: #ff0000;
+				/* 与文字保持一点距离 */
+				margin-right: 4px;
+			/* 星号加粗 */
+				font-weight: bold;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label required">印章名称</label>
+			<div class="layui-input-block">
+				<input id="name" type="text" name="name" class="layui-input" lay-verify="required"
+					lay-reqtext="印章名称不能为空" placeholder="请输入印章名称" disabled value="综合事务部行政公章">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">印章类型</label>
+			<div class="layui-input-block">
+				<input id="type" type="text" name="type" class="layui-input" lay-verify="required"
+					lay-reqtext="印章类型不能为空" placeholder="请输入印章类型" disabled value="行政公章">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">保管人</label>
+			<div class="layui-input-block">
+				<input id="people" type="text" name="people" class="layui-input" lay-verify="required"
+					lay-reqtext="保管人姓名不能为空" placeholder="请输入保管人姓名" disabled value="张建国">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系电话</label>
+			<div class="layui-input-block">
+				<input type="text" id="phone" name="phone" lay-verify="required" lay-reqtext="手机号码不能为空"
+					placeholder="请输入手机号码" class="layui-input" disabled value="01087654321">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">使用部门</label>
+			<div class="layui-input-block">
+				<select lay-verify="required" disabled>
+					<option value="1">综合事务部</option>
+					<option value="2">行政审批部</option>
+					<option value="3">公共资源交易部</option>
+					<option value="4">数据资源部</option>
+					<option value="5">系统管理部</option>
+					<option value="6">监督考核部</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">使用范围</label>
+			<div class="layui-input-block">
+				<input type="text" id="range" name="range" lay-verify="required" lay-reqtext="适用范围不能为空"
+					placeholder="请输入使用范围" class="layui-input" disabled value="部门内部行政文件、会议纪要、通知通告盖章">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">使用日期</label>
+			<div class="layui-input-inline">
+				<input id="time" type="text" name="time" placeholder="请选择使用日期" autocomplete="off"
+					class="layui-input" disabled value="2024-01-01至2024-01-31">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">备注</label>
+			<div class="layui-input-block">
+				<textarea name="remark" class="layui-textarea" placeholder="无" disabled></textarea>
+			</div>
+		</div>
+		</div>
+		
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+	</body>
+</html>

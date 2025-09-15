@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事项办理</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<style>
+			/* 为带有require类的元素添加红色星号前缀 */
+			.required::before {
+				/* 星号内容 */
+				content: "*";
+					/* 红色 */
+				color: #ff0000;
+				/* 与文字保持一点距离 */
+				margin-right: 4px;
+			/* 星号加粗 */
+				font-weight: bold;				
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend style="font-weight: bold;">身份证补办</legend>
+		</fieldset>
+		<div class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label required">真实姓名</label>
+			<div class="layui-input-block">
+				<input id="realname" type="text" name="realname" class="layui-input" lay-verify="required"
+					lay-reqtext="真实姓名不能为空" placeholder="请输入真实姓名">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">性别</label>
+			<div class="layui-input-block">
+				<input type="radio" name="sex" value="男" title="男" checked="">
+				<input type="radio" name="sex" value="女" title="女">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">民族</label>
+			<div class="layui-input-block">
+				<input id="nationality" type="text" name="nationality" class="layui-input" lay-verify="required"
+					lay-reqtext="民族不能为空" placeholder="请输入民族">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">身份证号</label>
+			<div class="layui-input-block">
+				<input type="text" id="id" name="id" lay-verify="required" lay-reqtext="身份证号不能为空"
+					placeholder="请输入身份证号" value="" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系电话</label>
+			<div class="layui-input-block">
+				<input type="text" id="phone" name="phone" lay-verify="required" lay-reqtext="手机号码不能为空"
+					placeholder="请输入手机号码" value="" class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系地址</label>
+			<div class="layui-input-block">
+				<input id="address" type="text" name="address" class="layui-input" lay-verify="required"
+					lay-reqtext="地址不能为空" placeholder="请输入地址">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">说明丢失或损坏情况</label>
+			<div class="layui-input-block">
+				<textarea name="remark" class="layui-textarea" placeholder="请输入情况说明"></textarea>
+			</div>
+		</div>
+		
+		<div>
+			<input type="file" style="font-size: 13px;position: relative;left: 110px;top: -7px;"/>
+		</div>
+		
+		<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+				</div>
+			</div><!-- 提交按钮结束 -->
+		</div>
+		
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+		<script>
+			// 加载Layui中的form模块、layer模块
+			layui.use(['form', 'layer'], function() {
+				var form = layui.form; // 获得form模块
+				var layer = layui.layer; // 获得layer模块
+				$ = layui.$; // 获得jQuery中的$
+				
+				// 1. 验证用户名，失去焦点时触发
+				// username是上面用户名文本框的id
+				$("#realname").blur(function() {
+					// 取得用户名框中的值
+					var realname = $("#realname").val();
+					//正则表达式
+					var reg = /^[\u4e00-\u9fa5]{2,6}$/; 
+						if (!reg.test(realname)) {
+							layer.msg('姓名必须是2-6个汉字！', {icon: 2});
+						}
+				});
+		
+				// 2. 验证密码，失去焦点时触发
+				$("#id").blur(function() {
+					var id = $("#id").val();
+					var reg = /^[0-9]{18}$/; //正则表达式
+						if (!reg.test(id)) {
+							layer.msg('身份证号格式不对，输入18位数字', {icon: 2});
+						}
+				});
+				
+				$("#phone").blur(function() {
+					var phone = $("#phone").val();
+					var reg = /^[0-9]{11}$/; //正则表达式
+						if (!reg.test(phone)) {
+							layer.msg('电话格式不对，输入11位数字', {icon: 2});
+						}
+				});
+			});
+		
+			layui.use(['form'], function() {
+				var form = layui.form;
+				  layer = layui.layer;
+				    $ = layui.$;
+		
+				//监听表单提交：确认保存按钮，提交按钮的lay-filter="saveBtn"
+				form.on('submit(saveBtn)', function(data) {
+					var index = layer.alert(JSON.stringify(data.field), {
+						title: '最终的提交信息'
+					}, function() {
+						// 关闭弹出层
+						layer.close(index);
+		
+						var iframeIndex = parent.layer.getFrameIndex(window.name);
+						parent.layer.close(iframeIndex);
+		
+					});
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>

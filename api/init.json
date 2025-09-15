@@ -1,0 +1,206 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "../page/home.html"
+  },
+  "logoInfo": {
+    "title": "政 务 办 公",
+    "image": "../img/logo.jpg",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "首页",
+          "href": "../page/home.html",
+          "icon": "fa fa-home",
+          "target": "_self"
+        },
+        {
+          "title": "公文处理",
+          "href": "",
+          "icon": "fa fa-book",
+          "target": "_self",
+          "child": [
+          {
+            "title": "公文查询",
+            "href": "../1document/d_check.html",
+            "icon": "fa fa-search",
+            "target": "_self"
+          }, {
+            "title": "公文添加",
+            "href": "../1document/d_add.html",
+            "icon": "fa fa-search-plus",
+            "target": "_self"
+          }
+        ]
+        },
+        {
+          "title": "政务服务",
+          "href": "",
+          "icon": "fa fa-institution",
+          "target": "_self",
+          "child": [
+            {
+              "title": "事项办理",
+              "href": "../2service/se_add.html",
+              "icon": "fa fa-bookmark",
+              "target": "_self"
+            }, {
+              "title": "进度查询",
+              "href": "../2service/se_check.html",
+              "icon": "fa fa-search",
+              "target": "_self"
+            }, {
+              "title": "便民查询",
+              "href": "../2service/se_convenient.html",
+              "icon": "fa fa-male",
+              "target": "_self"
+            }, {
+              "title": "投诉建议",
+              "href": "../2service/se_advice.html",
+              "icon": "fa fa-check-square",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "会议管理",
+          "href": "",
+          "icon": "fa fa-clock-o",
+          "target": "_self",
+          "child": [
+            {
+              "title": "会议申请",
+              "href": "../3meeting/me_add.html",
+              "icon": "fa fa-level-up",
+              "target": "_self"
+            }, {
+              "title": "会议室管理",
+              "href": "../3meeting/me_check.html",
+              "icon": "fa fa-laptop",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "人事管理",
+          "href": "",
+          "icon": "fa fa-group",
+          "target": "_self",
+          "child": [
+            {
+              "title": "员工信息",
+              "href": "../4staff/staf_add.html",
+              "icon": "fa fa-edit",
+              "target": "_self"
+            }, {
+              "title": "考勤管理",
+              "href": "../4staff/staf_clock.html",
+              "icon": "fa fa-exchange",
+              "target": "_self"
+            }, {
+              "title": "薪酬福利",
+              "href": "../4staff/staf_salary.html",
+              "icon": "fa fa-gift",
+              "target": "_self"
+            }, {
+              "title": "培训管理",
+              "href": "../4staff/staf_train.html",
+              "icon": "fa fa-hdd-o",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "资产管理",
+          "href": "",
+          "icon": "fa fa-folder",
+          "target": "_self",
+          "child": [
+            {
+              "title": "资产登记",
+              "href": "../5property/p_add.html",
+              "icon": "fa fa-keyboard-o",
+              "target": "_self"
+            }, {
+              "title": "资产查询",
+              "href": "../5property/p_check.html",
+              "icon": "fa fa-lightbulb-o",
+              "target": "_self"
+            },{
+              "title": "报废管理",
+              "href": "../5property/p_manage.html",
+              "icon": "fa fa-leaf",
+              "target": "_self"
+            }
+          ]
+        },{
+          "title": "任务管理",
+          "href": "",
+          "icon": "fa fa-bell",
+          "target": "_self",
+          "child": [
+            {
+              "title": "添加任务",
+              "href": "../6mission/mi_add.html",
+              "icon": "fa fa-asterisk",
+              "target": "_self"
+            }, {
+              "title": "查询任务",
+              "href": "../6mission/mi_check.html",
+              "icon": "fa fa-database",
+              "target": "_self"
+            }
+          ]
+        },{
+          "title": "分析统计",
+          "href": "",
+          "icon": "fa fa-bar-chart",
+          "target": "_self",
+          "child": [
+            {
+              "title": "业务统计",
+              "href": "../7statistics/stat_business.html",
+              "icon": "fa fa-bar-chart",
+              "target": "_self"
+            }, {
+              "title": "趋势分析",
+              "href": "../7statistics/stat_trend.html",
+              "icon": "fa fa-line-chart",
+              "target": "_self"
+            }
+          ]
+		},{
+          "title": "系统设置",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "部门信息管理",
+              "href": "../8system/sy_department_check.html",
+              "icon": "fa fa-newspaper-o",
+              "target": "_self"
+            }, {
+              "title": "印章使用登记",
+              "href": "../8system/sy_seal_check.html",
+              "icon": "fa fa-lock",
+              "target": "_self"
+            }, {
+              "title": "密码修改",
+              "href": "../8system/sy_password.html",
+              "icon": "fa fa-key",
+              "target": "_self"
+            }
+          ]
+		}
+      ]
+    }
+  ]
+}

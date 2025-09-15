@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+"name": "张三",
+"department": "综合事务部",
+"site": "A座301室"
+},
+{
+"name": "李四",
+"department": "行政审批部",
+"site": "B座402室"
+},
+{
+"name": "王五",
+"department": "公共资源交易部",
+"site": "A座503室"
+},
+{
+"name": "赵六",
+"department": "数据资源部",
+"site": "B座604室"
+},
+{
+"name": "孙七",
+"department": "监督考核部",
+"site": "A座705室"
+},
+{
+"name": "周八",
+"department": "系统管理部",
+"site": "B座806室"
+},
+{
+"name": "吴九",
+"department": "综合事务部",
+"site": "A座302室"
+},
+{
+"name": "郑十",
+"department": "行政审批部",
+"site": "B座403室"
+},
+{
+"name": "钱一",
+"department": "公共资源交易部",
+"site": "A座504室"
+},
+{
+"name": "冯二",
+"department": "数据资源部",
+"site": "B座605室"
+},
+{
+"name": "陈三",
+"department": "监督考核部",
+"site": "A座706室"
+},
+{
+"name": "褚四",
+"department": "系统管理部",
+"site": "B座807室"
+}
+]
+}

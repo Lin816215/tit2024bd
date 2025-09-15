@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事项办理</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<style>
+			/* 为带有require类的元素添加红色星号前缀 */
+			.required::before {
+				/* 星号内容 */
+				content: "*";
+					/* 红色 */
+				color: #ff0000;
+				/* 与文字保持一点距离 */
+				margin-right: 4px;
+			/* 星号加粗 */
+				font-weight: bold;				
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset class="layui-elem-field layui-field-title">
+			<legend style="font-weight: bold;">身份证补办</legend>
+		</fieldset>
+		<div class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label required">真实姓名</label>
+			<div class="layui-input-block">
+				<input id="realname" type="text" name="realname" disabled class="layui-input" lay-verify="required"
+					lay-reqtext="真实姓名不能为空" placeholder="请输入真实姓名" value="张三">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">性别</label>
+			<div class="layui-input-block">
+				<input type="radio" name="sex" value="男" title="男" checked="" disabled>
+				<input type="radio" name="sex" value="女" title="女" disabled>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">民族</label>
+			<div class="layui-input-block">
+				<input id="nationality" type="text" name="nationality" disabled class="layui-input" lay-verify="required"
+					lay-reqtext="民族不能为空" placeholder="请输入民族" value="汉族">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">身份证号</label>
+			<div class="layui-input-block">
+				<input type="text" id="id" name="id" lay-verify="required" lay-reqtext="身份证号不能为空"
+					placeholder="请输入身份证号" value="739182645071238945" disabled class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系电话</label>
+			<div class="layui-input-block">
+				<input type="text" id="phone" name="phone" lay-verify="required" lay-reqtext="手机号码不能为空"
+					placeholder="请输入手机号码" value="13800138000" disabled class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系地址</label>
+			<div class="layui-input-block">
+				<input id="address" type="text" name="address" disabled class="layui-input" lay-verify="required"
+					lay-reqtext="地址不能为空" placeholder="请输入地址" value="江苏省南京市鼓楼区">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">说明丢失或损坏情况</label>
+			<div class="layui-input-block">
+				<textarea name="remark" disabled class="layui-textarea" placeholder="无"></textarea>
+			</div>
+		</div>
+		
+		<div>
+			<input type="file" style="font-size: 13px;position: relative;left: 110px;top: -7px;"/>
+		</div>
+		
+		</div>
+		
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+	</body>
+</html>

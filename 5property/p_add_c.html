@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>资产登记</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<style>
+			/* 为带有require类的元素添加红色星号前缀 */
+			.required::before {
+				/* 星号内容 */
+				content: "*";
+					/* 红色 */
+				color: #ff0000;
+				/* 与文字保持一点距离 */
+				margin-right: 4px;
+			/* 星号加粗 */
+				font-weight: bold;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label required">资产名称</label>
+			<div class="layui-input-block">
+				<input id="name" type="text" name="name" class="layui-input" lay-verify="required"
+					lay-reqtext="资产名称不能为空" placeholder="请输入资产名称" disabled value="台式计算机（政务专用）">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">资产类型</label>
+			<div class="layui-input-block">
+				<select lay-verify="required" disabled>
+					<option value="1">硬件设备类</option>
+					<option value="2">软件系统类</option>
+					<option value="3">数据资源类</option>
+					<option value="4">网络设施类</option>
+					<option value="5">无形资产类</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">使用部门</label>
+			<div class="layui-input-block" >
+				<select lay-verify="required" disabled>
+					<option value="1">综合事务部</option>
+					<option value="2">行政审批部</option>
+					<option value="3">公共资源交易部</option>
+					<option value="4">数据资源部</option>
+					<option value="5">系统管理部</option>
+					<option value="6">监督考核部</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">购买日期</label>
+			<div class="layui-input-inline">
+				<input id="time" type="text" name="time" placeholder="请选择购买日期" autocomplete="off"
+					class="layui-input" disabled value="2024-10-10">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">责任人</label>
+			<div class="layui-input-block">
+				<input id="people" type="text" name="people" class="layui-input" lay-verify="required"
+					lay-reqtext="责任人不能为空" placeholder="请输入责任人" disabled value="张三">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label required">联系电话</label>
+			<div class="layui-input-block">
+				<input type="text" id="phone" name="phone" lay-verify="required" lay-reqtext="手机号码不能为空"
+					placeholder="请输入手机号码" class="layui-input" disabled value="13030304545">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">备注</label>
+			<div class="layui-input-block">
+				<textarea name="remark" class="layui-textarea" disabled placeholder="无"></textarea>
+			</div>
+		</div>
+		</div>
+		
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+	</body>
+</html>

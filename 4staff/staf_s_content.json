@@ -1,0 +1,91 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+		"name": "张三",
+		"department": "综合事务部",
+		"base": 5000,
+		"subsidy": 1200,
+		"benefit": "节日慰问品、年度体检"
+		},
+		{
+		"name": "李四",
+		"department": "行政审批部",
+		"base": 5200,
+		"subsidy": 1300,
+		"benefit": "生日福利、带薪年假"
+		},
+		{
+		"name": "王五",
+		"department": "公共资源交易部",
+		"base": 5500,
+		"subsidy": 1400,
+		"benefit": "通讯补贴、工会活动参与资格"
+		},
+		{
+		"name": "赵六",
+		"department": "数据资源部",
+		"base": 6000,
+		"subsidy": 1500,
+		"benefit": "专业培训机会、健康保险补充"
+		},
+		{
+		"name": "孙七",
+		"department": "监督考核部",
+		"base": 5300,
+		"subsidy": 1350,
+		"benefit": "加班调休、年度旅游补贴"
+		},
+		{
+		"name": "周八",
+		"department": "系统管理部",
+		"base": 6200,
+		"subsidy": 1600,
+		"benefit": "技术书籍报销、设备购置补贴"
+		},
+		{
+		"name": "吴九",
+		"department": "综合事务部",
+		"base": 5100,
+		"subsidy": 1250,
+		"benefit": "节日慰问品、年度体检"
+		},
+		{
+		"name": "郑十",
+		"department": "行政审批部",
+		"base": 5300,
+		"subsidy": 1320,
+		"benefit": "生日福利、带薪年假"
+		},
+		{
+		"name": "钱一",
+		"department": "公共资源交易部",
+		"base": 5600,
+		"subsidy": 1420,
+		"benefit": "通讯补贴、工会活动参与资格"
+		},
+		{
+		"name": "冯二",
+		"department": "数据资源部",
+		"base": 6100,
+		"subsidy": 1550,
+		"benefit": "专业培训机会、健康保险补充"
+		},
+		{
+		"name": "陈三",
+		"department": "监督考核部",
+		"base": 5400,
+		"subsidy": 1380,
+		"benefit": "加班调休、年度旅游补贴"
+		},
+		{
+		"name": "褚四",
+		"department": "系统管理部",
+		"base": 6300,
+		"subsidy": 1650,
+		"benefit": "技术书籍报销、设备购置补贴"
+		}
+		]
+		}

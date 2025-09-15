@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>趋势分析</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<script src="https://cdn.jsdelivr.net/npm/echarts@4.3.0/dist/echarts.min.js"></script>
+	</head>
+	<body>
+		<div class="layuimini-container">
+		    <div class="layuimini-main">
+		        <div class="layui-row layui-col-space15">
+					<div class="layui-card">
+						<div class="layui-card-header"><i class="fa fa-line-chart icon"></i>趋势分析</div>
+						<div class="layui-card-body">
+							<div id="echarts-records" style="width: 100%;min-height:500px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+		<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+		<script>
+					layui.use(['element'], function() {
+						var element = layui.element; // 加载Layui元素模块（可选，用于保持样式一致性）
+						
+						// 1. 初始化ECharts实例（绑定到指定DOM容器）
+						var myChart = echarts.init(document.getElementById('echarts-records'));
+						
+						// 2. 配置折线图选项（核心数据与样式）
+						var option = {
+							// 图表标题（居中显示）
+							title: {
+								text: '月度业务变化趋势',
+								left: 'center',
+								textStyle: {
+									fontSize: 16,
+									fontWeight: 'bold'
+								}
+							},
+							// 提示框（鼠标 hover 时显示详细数据）
+							tooltip: {
+								trigger: 'axis', // 按坐标轴触发
+								axisPointer: {
+									type: 'cross' // 显示十字准星
+								}
+							},
+							// 图例（区分两个系列，右上角显示）
+							legend: {
+								data: ['政务服务申请量', '投诉量'],
+								right: '10%'
+							},
+							// X轴（月度标签）
+							xAxis: {
+								type: 'category',
+								data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+								axisLabel: {
+									rotate: 30, // 标签旋转30度（避免重叠）
+									fontSize: 12
+								}
+							},
+							// Y轴（数值标签）
+							yAxis: {
+								type: 'value',
+								name: '数量（件）',
+								nameTextStyle: {
+									fontSize: 12
+								}
+							},
+							// 系列数据（两个折线系列）
+							series: [
+								{
+									name: '政务服务申请量', // 系列名称（对应图例）
+									type: 'line', // 图表类型（折线图）
+									data: [100, 120, 150, 180, 220, 260, 300, 350, 400, 450, 500, 550], // 模拟增长数据
+									smooth: true, // 平滑曲线（更美观）
+									itemStyle: {
+										color: '#1890ff' // 折线颜色（蓝色）
+									}
+								},
+								{
+									name: '投诉量',
+									type: 'line',
+									data: [200, 180, 150, 120, 100, 80, 70, 60, 50, 40, 30, 20], // 模拟减少数据
+									smooth: true,
+									itemStyle: {
+										color: '#ff4500' // 折线颜色（橙色）
+									}
+								}
+							]
+						};
+						
+						// 3. 将配置项应用到图表
+						myChart.setOption(option);
+						
+						// 4. 自适应窗口大小（可选，图表随窗口缩放）
+						window.addEventListener('resize', function() {
+							myChart.resize();
+						});
+					});
+				</script>
+	</body>
+</html>

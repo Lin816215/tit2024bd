@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公文添加</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		<style>
+			/* 为带有require类的元素添加红色星号前缀 */
+			.required::before {
+				/* 星号内容 */
+				content: "*";
+					/* 红色 */
+				color: #ff0000;
+				/* 与文字保持一点距离 */
+				margin-right: 4px;
+			/* 星号加粗 */
+				font-weight: bold;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-form">
+			<div class="layui-form-item">
+				<label class="layui-form-label required">公文编号</label>
+					<div class="layui-input-block">
+						<input id="number" type="text" name="number" disabled class="layui-input" lay-verify="required"
+							 placeholder="请输入公文编号" value="XZZW-2024-006">
+					</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label required">公文标题</label>
+					<div class="layui-input-block">
+						<input id="title" type="text" name="title" disabled class="layui-input" lay-verify="required"
+							 placeholder="请输入公文标题" value="关于开展政务办公系统用户操作培训的通知">
+					</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label required">发文单位</label>
+				<div class="layui-input-block">
+					<select lay-verify="required" disabled>
+						<option value="1">综合事务部</option>
+						<option value="2">行政审批部</option>
+						<option value="3">公共资源交易部</option>
+						<option value="4">数据资源部</option>
+						<option value="5">监督考核部</option>
+						<option value="6">系统管理部</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label required">发文日期</label>
+				<div class="layui-input-inline">
+					<input id="time" type="text" name="time" placeholder="请选择发文日期" autocomplete="off" disabled value="2024-03-10"
+						class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+			      <label class="layui-form-label required">状态</label>
+			      <div class="layui-input-block">
+			          <select lay-verify="required" disabled>
+			          	<option value="1">已处理</option>
+			          	<option value="2">未处理</option>
+			          </select>
+			      </div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">备注</label>
+				<div class="layui-input-block">
+					<textarea   name="remark" class="layui-textarea" disabled placeholder="无"></textarea>
+				</div>
+			</div>
+			</div>
+			
+			<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+			
+	</body>
+</html>

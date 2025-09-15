@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>业务统计</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+		
+	</head>
+	<body>
+		<div class="layuimini-container">
+		    <div class="layuimini-main">
+		        <div class="layui-row layui-col-space15">
+					<div class="layui-card">
+						<div class="layui-card-header"><i class="fa fa-line-chart icon"></i>报表统计</div>
+						<div class="layui-card-body">
+							<div id="echarts-records" style="width: 100%;min-height:500px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+		<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+		<script>
+		    layui.use(['layer', 'miniTab','echarts'], function () {
+		        var $ = layui.jquery,
+		            layer = layui.layer,
+		            miniTab = layui.miniTab,
+		            echarts = layui.echarts;
+		
+		        miniTab.listen();
+		var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+		
+		        var optionRecords = {
+		            title : {
+		                text: '一季度办件量饼图',
+		                x:'center'
+		            },
+		            tooltip : {
+		                trigger: 'item',
+		                formatter: "{a} <br/>{b} : {c} ({d}%)"
+		            },
+		            legend: {
+		                orient: 'vertical',
+		                left: 'left',
+		                data: ['公文处理量','政务服务申请量','会议数量','培训次数','资产登记量','任务量']
+		            },
+		            series : [
+		                {
+		                    name: '数量',
+		                    type: 'pie',
+		                    radius : '55%',
+		                    center: ['50%', '60%'],
+		                    data:[
+		                        {value:400, name:'公文处理量'},
+		                        {value:320, name:'政务服务申请量'},
+		                        {value:355, name:'会议数量'},
+		                        {value:30, name:'培训次数'},
+								{value:300, name:'资产登记量'},
+		                        {value:560, name:'任务量'}
+		                    ],
+		                    itemStyle: {
+		                        emphasis: {
+		                            shadowBlur: 10,
+		                            shadowOffsetX: 0,
+		                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                        }
+		                    }
+		                }
+		            ]
+		        };
+		        echartsRecords.setOption(optionRecords);
+		
+		        // echarts 窗口缩放自适应
+		        window.onresize = function(){
+		            echartsRecords.resize();
+		        }
+		
+		    });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>培训管理</title>
+		<link rel="stylesheet" href="../lib/layui-v2.6.3/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/layuimini.css" media="all">
+	</head>
+	<body>
+		<div class="layuimini-container">
+		    <div class="layuimini-main">
+		        <div class="layui-row layui-col-space15">
+					<div class="layui-card">
+						<div class="layui-card-header"><i class="fa fa-line-chart icon"></i>报表统计</div>
+						<div class="layui-card-body">
+							<div id="echarts-records1" style="width: 100%;min-height:500px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layuimini-container">
+			<div class="layuimini-main">
+				<div class="layui-row layui-col-space15">
+					<div class="layui-card">
+						<div class="layui-card-header"><i class="fa fa-line-chart icon"></i>报表统计</div>
+						<div class="layui-card-body">
+							<div id="echarts-records2" style="width: 100%;min-height:500px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div>
+				<!-- 查询条件开始 -->
+				<fieldset class="table-search-fieldset">
+					<legend>搜索信息</legend>
+					<div style="margin: 10px 10px 10px 10px">
+						<form class="layui-form layui-form-pane" action="">
+							<div class="layui-form-item">
+								<div class="layui-inline">
+									<label class="layui-form-label">姓名</label>
+									<div class="layui-input-inline">
+										<input type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-inline">
+									<label class="layui-form-label">部门</label>
+									<div class="layui-input-inline">
+										<select >
+											<option value="1" selected>综合事务部</option>
+											<option value="2">行政审批部</option>
+											<option value="3">公共资源交易部</option>
+											<option value="4">数据资源部</option>
+											<option value="5">系统管理部</option>
+											<option value="6">监督考核部</option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-inline">
+									<button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</fieldset><!-- 查询条件结束 -->
+				<script type="text/html" id="staffTableToolbar">
+					<div class="layui-btn-container">
+						<!-- 这里的lay-event="add"和delete在后面的JS代码中要用 -->
+						
+					</div>
+				</script> <!--工具栏设置结束-->
+				<table class="layui-hide" id="staffTable" lay-filter="staffTableFilter"></table>
+				
+						<!--用户状态列（看表格预览效果），id="userStatus"是程序员自定，后面JS中用-->
+						<script type="text/html" id="staffStatus">
+							<input type="checkbox" name="status"  checked lay-skin="switch" lay-text="已打卡|未打卡" lay-event="open" lay-filter="modifystatus" {{ d.status == '1'? 'checked' : '' }}/>
+						</script>
+				
+				        <!-- 定义表格最后一列：操作 ；lay-event="detail"、 lay-event="edit"、lay-event="delete"后面JS会用到-->
+						<script type="text/html" id="staffTableOperation">
+							<a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+						</script>
+					</div>
+				</div>
+<script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['layer', 'miniTab','echarts'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            miniTab = layui.miniTab,
+            echarts = layui.echarts;
+
+        miniTab.listen();
+
+
+        /**
+         * 报表功能
+         */
+        var echartsRecords1 = echarts.init(document.getElementById('echarts-records1'), 'walden');
+
+        var optionRecords1 = {
+            title : {
+                text: '各部门报名培训的员工人数饼图',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['综合事务部','行政审批部','公共资源交易部','数据资源部','监督考核部','系统管理部']
+            },
+            series : [
+                {
+                    name: '人数',
+                    type: 'pie',
+                    radius : '55%',
+                    center: ['50%', '60%'],
+                    data:[
+                        {value:400, name:'综合事务部'},
+                        {value:360, name:'行政审批部'},
+                        {value:135, name:'公共资源交易部'},
+                        {value:100, name:'数据资源部'},
+						{value:50, name:'系统管理部'},
+                        {value:50, name:'监督考核部'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+		var echartsRecords2 = echarts.init(document.getElementById('echarts-records2'), 'walden');
+		var optionRecords2 = {
+		    title : {
+		        text: '各部门员工报名培训的成绩饼图(平均值)',
+		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'left',
+		        data: ['综合事务部','行政审批部','公共资源交易部','数据资源部','监督考核部','系统管理部']
+		    },
+		    series : [
+		        {
+		            name: '成绩平均值',
+		            type: 'pie',
+		            radius : '55%',
+		            center: ['50%', '60%'],
+		            data:[
+		                {value:80.5, name:'综合事务部'},
+		                {value:86.3, name:'行政审批部'},
+		                {value:93.6, name:'公共资源交易部'},
+		                {value:89.9, name:'数据资源部'},
+						{value:64, name:'系统管理部'},
+		                {value:70, name:'监督考核部'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+        echartsRecords1.setOption(optionRecords1);
+		echartsRecords2.setOption(optionRecords2);
+        // echarts 窗口缩放自适应
+        window.onresize = function(){
+            echartsRecords.resize();
+        }
+
+    });
+	// 使用Layui的表单和表格模块
+					layui.use(['form', 'table'], function () {
+						var $ = layui.jquery;     // 获得jQuery
+							form = layui.form;    // 获得表单模块
+							table = layui.table;  // 获得表格模块
+							
+				        //渲染表格，也就是设置表格
+				        table.render({
+				        	elem: '#staffTable', // 上面表格的id
+				        	url: 'staf_t_content.json', // 表格数据JSON文件的位置
+				        	toolbar: '#staffTableToolbar', // 工具栏的id，上面定义的 ；不写的话工具栏不会出现
+				        	defaultToolbar: ['filter', 'exports', 'print', {
+				        		title: '提示',
+				        		layEvent: 'LAYTABLE_TIPS',
+				        		icon: 'layui-icon-tips'
+				        	}],
+				        	cols: [[ // 列定义
+				        		{type: "checkbox", width: 50},
+				        		{field: 'name', width: 450, title: '姓名'},
+				        		{field: 'department', width: 450, title: '部门'},
+				        		{field: 'grade', width:450, title: '培训成绩'},
+				        	]],
+				        	limits: [10, 15, 20, 25, 50, 100], // 每页显示条数切换
+				        	limit: 15, // 每页默认显示15条数据
+				        	page: true, // 不写的话，分页显示不会显示
+				        	skin: 'line' // 表格有边框
+				        });
+				        
+						// 监听搜索操作
+						form.on('submit(data-search-btn)', function (data) {
+							var result = JSON.stringify(data.field);
+							layer.alert(result, {
+								title: '最终的搜索信息'
+							});
+						
+							//执行搜索重载
+							table.reload('staffTable', {
+								page: {
+									curr: 1
+								}
+								, where: {
+									searchParams: result
+								}
+							}, 'data');
+						
+							return false;
+						});
+						
+						//监听表格复选框选择
+						table.on('checkbox(staffTableFilter)', function (obj) {
+							console.log(obj); // 这里是简单的将信息输出，可看浏览器控制台
+						});
+						
+						form.on('switch(modifystatus)', function(obj){
+							console.log(obj);
+							var param = obj.value;
+						});
+					});
+</script>
+</body>
+</html>
