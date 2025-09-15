@@ -95,12 +95,12 @@
 				var layer = layui.layer; // 获得layer模块
 				$ = layui.$; // 获得jQuery中的$
 				
-				$("#name").blur(function() {
+				$("#people").blur(function() {
 					// 取得用户名框中的值
-					var name = $("#name").val();
+					var people = $("#people").val();
 					//正则表达式
 					var reg = /^[\u4e00-\u9fa5]{2,6}$/; 
-						if (!reg.test(name)) {
+						if (!reg.test(people)) {
 							layer.msg('负责人必须是2-6个汉字！', {icon: 2});
 						}
 				});
@@ -142,6 +142,7 @@
 					  elem: '#time'
 					});
 				});
+
 		</script>
 	</body>
 </html>
